@@ -14,7 +14,7 @@ class LoginPage(BasePage):
     def should_be_login_url(self):
         assert WebDriverWait(self.browser, 3).until(
             EC.url_contains('login')
-        ), "Current URL is not contain 'login'"
+        ), "Current URL is not contains 'login'"
 
     def should_be_login_form(self):
         assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), "Login form is not presented"
