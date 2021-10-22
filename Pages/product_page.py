@@ -1,7 +1,5 @@
 from .locators import ProductPageLocators
 from .base_page import BasePage
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 class ProductPage(BasePage):
 
@@ -21,7 +19,7 @@ class ProductPage(BasePage):
         self.check_product_price_in_basket(product_price)
 
     def should_be_promo_url(self):
-        assert '?promo=newYear' in self.browser.current_url, "Current URL is not contains 'promo' link."
+        assert '?promo=' in self.browser.current_url, "Current URL is not contains 'promo' link."
 
     def should_be_product_name(self):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME), "Product name is not presented."
