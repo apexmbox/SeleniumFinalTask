@@ -38,6 +38,12 @@ class ProductPage(BasePage):
     def should_be_current_basket_message(self):
         assert self.is_element_present(*ProductPageLocators.CURRENT_BASKET_MESSAGE), "Message about current basket status is not presented."
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be."
+
+    def should_disappear_success_message(self):
+        assert self.is_dissappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not disappeared."
+
     def press_add_to_basket_button(self):
         basket = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         basket.click()
